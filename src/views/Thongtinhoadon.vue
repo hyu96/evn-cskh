@@ -38,7 +38,7 @@ export default {
         "auth": auth
       };
 
-      axios.post('http://localhost:8080/evn-hcm/tthd', data, {headers})
+      axios.post('https://api.sandbox.evnpoint.com/20984/gup2start/rest/evn-mock/evn-hcm/tthd', data, {headers})
         .then(response => {
           this.apiData = response.data;
           this.data = response.data.data[0];
