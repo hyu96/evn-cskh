@@ -8,7 +8,7 @@ export default {
       ma_khang: '',
       id_hoa_don: '',
       ma_don_vi_quan_ly: '',
-      data: {
+      data: [{
         "ID_HDON": "",
         "MA_KHANG": "",
         "MA_DVIQLY": "",
@@ -20,7 +20,7 @@ export default {
         "NGAY_CKY": "",
         "DIEN_TTHU": "",
         "TONG_TIEN": "",
-      }
+      }],
     };
   },
   methods: {
@@ -43,7 +43,8 @@ export default {
       axios.post('https://api.sandbox.evnpoint.com/20984/gup2start/rest/evn-mock/evn-hcm/tthd', data, {headers})
         .then(response => {
           this.apiData = response.data;
-          this.data = response.data.data[0];
+          this.data[0] = response.data.data[0];
+          this.data.push(response.data.data[1]);
           console.log(response.data);
         })
         .catch(error => {
@@ -67,29 +68,31 @@ export default {
     
     
       <div>
+      
+        <ul v-for="hdd in data">
+          <br>
         <br>
         <br>
-        <br>
-
-        <div><strong class="title">Ma Khang: {{ data.MA_KHANG }}</strong></div>
+        <div><strong class="title">Ma Khang: {{ hdd.MA_KHANG }}</strong></div>
         <br>
         <div>
-          <div><strong class="title">Ten Khach hang</strong>: {{ data.TEN_KHANG }}</div>
+          <div><strong class="title">Ten Khach hang</strong>: {{ hdd.TEN_KHANG }}</div>
           <br>
-          <div><strong class="title">ID Hoa don</strong>: {{ data.ID_HDON }}</div>
+          <div><strong class="title">ID Hoa don</strong>: {{ hdd.ID_HDON }}</div>
           <br>
-          <div><strong class="title">Ma Khach hang</strong>: {{ data.MA_KHANG }}</div>
+          <div><strong class="title">Ma Khach hang</strong>: {{ hdd.MA_KHANG }}</div>
           <br>
-          <div><strong class="title">Ma Don vi quan ly</strong>: {{ data.MA_DVIQLY }}</div>
+          <div><strong class="title">Ma Don vi quan ly</strong>: {{ hdd.MA_DVIQLY }}</div>
           <br>
-          <div><strong class="title">Ky</strong>: {{ data.KY }}</div>
+          <div><strong class="title">Ky</strong>: {{ hdd.KY }}</div>
           <br>
-          <div><strong class="title">Thang</strong>: {{  data.THANG }}</div>
+          <div><strong class="title">Thang</strong>: {{  hdd.THANG }}</div>
           <br>
-          <div><strong class="title">Số kWH</strong>: {{ data.DIEN_TTHU }}</div>
+          <div><strong class="title">Số kWH</strong>: {{ hdd.DIEN_TTHU }}</div>
           <br>
-          <div><strong class="title">Tong tien</strong>: {{ data.TONG_TIEN }}</div>
+          <div><strong class="title">Tong tien</strong>: {{ hdd.TONG_TIEN }}</div>
         </div>
+      </ul>
         <br>
         <br>
       </div>
