@@ -31,11 +31,11 @@ export default {
       const today = new Date()
       const tomorrow = new Date(today)
       tomorrow.setDate(tomorrow.getDate() + 1)
-      let auth = MD5(this.ma_khang + '2023' + tomorrow.getTime() + '|2k9ef340452dsg4258sfj6n3257').toString();
+      let auth = MD5(this.ma_khang + '2024' + tomorrow.getTime() + '|2k9ef340452dsg4258sfj6n3257').toString();
       
       const data = {
         "ma_khang" : this.ma_khang,
-        "nam": "2023",
+        "nam": "2024",
         "time": tomorrow.getTime(),
         "auth": auth
       };

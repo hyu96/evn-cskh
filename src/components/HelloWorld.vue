@@ -18,7 +18,7 @@ export default {
 
       const data = {
         "ma_khang" : this.ma_khang,
-        "nam": "2023",
+        "nam": "2024",
         "time": 1689234144,
         "auth": "4db829937fc692ef6341383d368f66a1"
       };

@@ -38,7 +38,7 @@ export default {
         "auth": auth
       }
 
-      axios.post('http://localhost:8080/evn-hcm/sld', data, {headers})
+      axios.post('https://api.sandbox.mypoint.com.vn/8854/gup2start/rest/iam/v1/authentication/login', data, {headers})
         .then(response => {
           console.log(response);
           this.data = response.data.data.ds_sanluong;
