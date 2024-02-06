@@ -44,8 +44,10 @@ export default {
         .then(response => {
           this.apiData = response.data;
           this.data[0] = response.data.data[0];
-          this.data.push(response.data.data[1]);
-          console.log(response.data);
+          if (response.data.data[1] != null) {
+            this.data.push(response.data.data[1]);
+          }
+          console.log(this.data);
         })
         .catch(error => {
           console.error('Error fetching API data:', error);
